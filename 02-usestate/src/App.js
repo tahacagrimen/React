@@ -10,6 +10,11 @@ function App() {
   // useState(0) bizim default değerimizdir.
 
   const [count, setCount] = useState(0);
+  const [friends, setFriends] = useState(["Ahmet", "Murat", "Mehmet"]);
+  const [address, setAddress] = useState({
+    city: "İstanbul",
+    street: "Üsküdar",
+  });
 
   // azalt fonksiyonu ile setCount'i çağırır ve count'i azaltır.
   // prevCount, count'ın önceki değerini saklar.
@@ -25,8 +30,25 @@ function App() {
     // onClick eventinde azalt fonksiyonunu çalıştır demek oluyor bu.
     <>
       <button onClick={azalt}>-</button>
-      <span>{count}</span>
+      <span> {count} </span>
       <button onClick={arttir}>+</button>
+      <br />
+      <h2>Friends</h2>
+      {friends.map((friend) => (
+        <div key={friend}>{friend}</div>
+      ))}{" "}
+      <br />
+      <button onClick={() => setFriends([...friends, "Ayşe"])}>
+        Add a friend
+      </button>
+      <br />
+      <h2>Address</h2>
+      <div>
+        {address.city} / {address.street}
+      </div>
+      <button onClick={() => setAddress({ ...address, city: "Ankara" })}>
+        Change Address
+      </button>
     </>
   );
 }
