@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import InputExample from "./InputExample";
 
 // useState'i sadece fonksiyon içinde kullanabiliriz.
 
@@ -49,6 +50,10 @@ function App() {
       <button onClick={() => setAddress({ ...address, city: "Ankara" })}>
         Change Address
       </button>
+      <br />
+      <br />
+      {/* Input State */}
+      <InputExample />
     </>
   );
 }
