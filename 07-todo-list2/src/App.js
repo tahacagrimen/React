@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./App.css";
 import Input from "./Input";
 import List from "./List";
-import CheckAll from "./CheckAll";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -10,18 +9,11 @@ function App() {
     "Learn TypeScript",
     "Learn NodeJS",
   ]);
-  const checked = false;
-
-  console.log(checked);
 
   return (
-    <div className="App flex justify-center align-center flex-col h-screen">
-      <h1>todos</h1>
-      <div className="flex justify-center align-center">
-        <CheckAll checked={checked} todos={todos} />
-        <Input addtodos={setTodos} todos={todos} />
-      </div>
-
+    <div className="flex justify-start items-center flex-col h-auto w-4/5 p-3 mt-32 shadow-slate-400 shadow-xl rounded-xl bg-gray-100">
+      <h1 className="text-4xl font-mono mb-2 opacity-50">todos</h1>
+      <Input addtodos={setTodos} todos={todos} />
       <List todos={todos} />
     </div>
   );
