@@ -23,6 +23,17 @@ function Users() {
     // finally() methodu ile loading işlemi bitince loading işlemi kapatıyoruz.
   }, []);
 
+  // !! AXIOS !! //
+
+  // Axios fetch ile aynı. Tek farkı direk json formatında geliyor veri.Bu yüzden data.json() methodunu kullanmamıza gerek yok.
+
+  // useEffect(() => {
+  //   axios("https://jsonplaceholder.typicode.com/users")
+  //     .then((data) => setUsers(data))
+  //     .catch((err) => console.log(err))
+  //     .finally(() => setIsLoading(false));
+  // }, []);
+
   return (
     <div>
       <h1>Users</h1>
