@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Input({ addtodos, todos }) {
   const [value, setValue] = useState("");
@@ -10,7 +10,7 @@ function Input({ addtodos, todos }) {
       }
 
       setValue(e.target.value);
-      addtodos([e.target.value, ...todos]);
+      addtodos([...todos, e.target.value]);
       e.target.value = "";
     }
   };
