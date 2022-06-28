@@ -1,11 +1,11 @@
 import "./App.css";
-import Button from "./components/Button";
+import Container from "./components/Container";
 import { ThemeProvider } from "./context/TeamContext";
 
 function App() {
   return (
     <ThemeProvider>
-      <Button />
+      <Container />
     </ThemeProvider>
   );
 }
