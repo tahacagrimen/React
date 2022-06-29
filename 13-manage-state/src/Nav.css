@@ -1,0 +1,9 @@
+.Nav {
+  background-color: gray;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  color: white;
+}
