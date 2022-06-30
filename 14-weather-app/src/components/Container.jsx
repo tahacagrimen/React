@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Weather from "./Weather";
+import { WeatherContext } from "../contexts/WeatherContext";
 
 function Container() {
   const [cityList, setCityList] = useState([]);
