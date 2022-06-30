@@ -3,19 +3,31 @@ import React, { createContext, useState, useEffect } from "react";
 export const WeatherContext = createContext();
 
 export const WeatherProvider = (props) => {
-  const [data, setData] = useState({ lat: "", lon: "" });
-  function getData(a, b) {
-    useEffect(() => {
-      fetch(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${a}&lon=${b}&exclude=minutely,hourly&units=metric&appid=7aff406c731cdcb4010f9219e8f01864`
-      )
-        .then((res) => res.json())
-        .then((data) => setData(data));
-    }, []);
+  function myDate() {
+    let a = new Date();
+    let weekdays = new Array(7);
+    weekdays[0] = "Sunday";
+    weekdays[1] = "Monday";
+    weekdays[2] = "Tuesday";
+    weekdays[3] = "Wednesday";
+    weekdays[4] = "Thursday";
+    weekdays[5] = "Friday";
+    weekdays[6] = "Saturday";
+    let r = weekdays[a.getDay()];
+    let indexR = weekdays.indexOf(r);
+    let newArr = [
+      r,
+      ...weekdays.slice(indexR + 1),
+      ...weekdays.slice(0, indexR),
+      r,
+    ];
+    return newArr;
   }
 
+  const weeklist = myDate();
+
   return (
-    <WeatherContext.Provider value={data}>
+    <WeatherContext.Provider value={weeklist}>
       {props.children}
     </WeatherContext.Provider>
   );
