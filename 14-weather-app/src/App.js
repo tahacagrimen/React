@@ -1,4 +1,3 @@
-import "./App.css";
 import React from "react";
 import Container from "./components/Container";
 import { WeatherProvider } from "./contexts/WeatherContext";

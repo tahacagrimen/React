@@ -6,6 +6,7 @@ function Container() {
   const [cityList, setCityList] = useState([]);
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
+  const [city, setCity] = useState(null);
 
   useEffect(() => {
     fetch(
@@ -20,14 +21,15 @@ function Container() {
     setLongitude(
       cityList.find((city) => city.name === e.target.value).longitude
     );
+    setCity(e.target.value);
   };
 
   console.log(latitude, longitude);
 
   return (
-    <div>
+    <div className="border-2  border-slate-50 p-4 shadow-xl rounded-3xl h-96">
       <form>
-        <select onChange={handleCity} name="cities" id="cities">
+        <select className="" onChange={handleCity} name="cities" id="cities">
           <option value="">Select City</option>
           {cityList.map((city) => (
             <option
@@ -41,7 +43,14 @@ function Container() {
           ))}
         </select>
       </form>
-      <Weather latitude={latitude} longitude={longitude} />
+      <Weather
+        latitude={latitude}
+        longitude={longitude}
+        setLatitude={setLatitude}
+        setLongitude={setLongitude}
+        setCity={setCity}
+        city={city}
+      />
     </div>
   );
 }
