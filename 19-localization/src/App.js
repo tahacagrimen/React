@@ -6,11 +6,11 @@ import React, { useState, useEffect } from "react";
 const messages = {
   "tr-TR": {
     title: "Merhaba Dünya",
-    description: "Bu bir test metini",
+    description: "Bu bir test metini {count}",
   },
   "en-US": {
     title: "Hello World",
-    description: "This is a test text",
+    description: "This is a test text {count}",
   },
 };
 
@@ -31,7 +31,7 @@ function App() {
       <IntlProvider locale={locale} messages={messages[locale]}>
         <FormattedMessage id="title" />
         <p>
-          <FormattedMessage id="description" />
+          <FormattedMessage id="description" values={{ count: 3 }} />
         </p>
         <br />
         <br />
